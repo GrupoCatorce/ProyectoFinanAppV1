@@ -1,0 +1,21 @@
+.d1{
+    background-color: blue;
+    height: 150px;
+ 
+}
+.d2{
+    background-color: red;
+    height: 150px;
+    
+}
+.d3{
+    background-color: green;
+    height: 150px;
+
+}
+.mitabla{
+    width: 50%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}

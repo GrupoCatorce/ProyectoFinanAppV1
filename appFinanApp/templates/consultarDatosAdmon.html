@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID Empresa</th>
+            <th>NIT</th>
+            <th>Nombre_Empresa</th>
+            <th>Email Coorporativo</th>
+            <th>Telefono Coorporativo</th>
+        </tr>
+        {% for i in lista %}
+        <tr>
+            <td>{{i.UserID.UserID}}</td>
+            <td>{{i.UserID.Nombre}}</td>
+            <td>{{i.UserID.ID_Empresa}}</td>
+            <td>{{i.Nombre_Empresa}}</td>
+            <td>{{i.Email_Coorporativo}}</td>
+            <td>{{Telefono_Coorporativo}}</td>
+        </tr>
+        {% end in for %}
+    </table>
+    
+</body>
+</html>

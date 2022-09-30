@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "css/stylessTable.css" %}'>
+    <title>Document</title>
+    {% if request.session.UserName %}
+</head>
+
+<body>
+    <section class="sesiondos">
+        <fieldset class="fi">
+            <form action="/actualizarAdmon/" method="POST" class="frm">
+                {%csrf_token%}
+                <legend>Título del Formulario</legend>
+                <label for="a">UserID
+                    <input type="text" id="a" name=UserID value="{{Administrador.UserID}}">
+                </label>
+
+                <label for="b">Nombre
+                    <input type="text" id="b" name="Nombre" value="{{Administrador.Nombre}}">
+                </label>
+
+                <label for="c">Apellido
+                    <input type="text" id="c" name="Apellido" value="{{Administrador.Apellido}}">
+                </label>
+
+                <label for="d">Email
+                    <input type="email" id="d" name="Email" value="{{Administrador.Email}}">
+                </label>
+
+                <label for="e"> Celular
+                    <input type="text" id="e" name="Celular" value="{{Administrador.Celular}}">
+                </label>
+
+                <label for="f"> Fecha_Ingreso_Empresa
+                    <input type="Date" id="f" name="Fecha_Ingreso_Empresa" value="{{Administrador.Fecha_Ingreso_Empresa}}">
+                </label>
+
+                <input type="submit" value="ACTUALIZAR">
+            </form>
+        </fieldset>
+    </section>
+
+</body>
+    {%endif%}
+</html>

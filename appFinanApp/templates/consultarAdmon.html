@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "css/stylessTable.css" %}'>
+    <title>Document</title>
+    {% if request.session.UserName %}
+</head>
+<body>
+    <section class="sesiontres">
+        <div class="tit">Lista de Administradores</div>
+        <table class="tabla">
+        <thead>
+            <tr>
+                <th>UserID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Celular</th>
+                <th>Fecha Ingreso Empresa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in listadoAdmon%}
+            <tr>
+                <td>{{i.UserID}}</td>
+                <td>{{i.Nombre}}</td>
+                <td>{{i.Apellido}}</td>
+                <td>{{i.Email}}</td>
+                <td>{{i.Celular}}</td>
+                <td>{{i.Fecha_Ingreso_Empresa}}</td>
+                <td><a href="/actualizarAdmon/{{i.UserID}}">Actualizar</a></td>
+                <td><a href="/eliminarAdmon/{{i.UserID}}">Eliminar</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+        </table>
+    </section>
+</body>
+    {%endif%}
+</html>

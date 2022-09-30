@@ -1,0 +1,30 @@
+.sesiontres{
+    background-color: 0;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+.tit{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color:lightcoral;
+    margin-bottom: 20px;
+}
+
+table{
+    background-color: gold;
+    margin-left: auto;
+    margin-right: auto;
+    color: blue;
+}
+
+tr{
+    background-color: bisque;
+    
+}
+th{
+    color: brown;
+
+}

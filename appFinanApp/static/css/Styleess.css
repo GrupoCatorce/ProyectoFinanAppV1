@@ -1,0 +1,102 @@
+@font-face {
+    src: url(../fuentes/Albertta.otf);
+    font-family: MiLetra;
+    
+}
+body{
+    background-image: url(../Imagenes/dirham-gbd9a43979_1920.jpg);
+    background-size: cover;
+}
+
+.contenedorheader{
+    background-color: rgb(2, 157, 12);
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.titulologo{
+    background-color:0;
+    width: 30%;
+    height: 70px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.nav{
+    background-color:0;
+    width: 60%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    
+}
+ul{
+    background-color:0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+li{
+    display: inline;
+    background-color: rgba(255, 255, 255,0.4);
+    padding: 10px;
+    width: 160px;
+    margin-right: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+a{
+    text-decoration: none;
+    color:#fff;
+    font-size: 15px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.titulo{
+    background-color:0;
+    color: #fff;
+    font-size:  21px;
+    font-weight: bold;
+    margin-left: 10px;
+    text-shadow: 1px 4px 2px black;
+}
+
+.logo{
+    background-image: url(../Imagenes/usd-crypto-cryptocurrency-cryptocurrencies-cash-money-bank-payment_95707.png);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+.art1{
+    background-color: rgba(0, 0, 225, 0.4);
+    margin: 20px;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    font-family:MiLetra;
+    border-radius: 20 px 10 px 5 px 0p;
+    box-shadow: 4px 6px 2px rgb(0, 0, 11);
+}
+.sesionuno{
+    display: flex;
+    flex-wrap: 0;
+    margin-top: 20px;
+}
+
+h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+p{
+    font-size: 20px;
+}
+#article4{
+    background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(102,184,26,1) 35%, rgba(165,181,44,1) 62%, rgba(252,176,69,1) 100%);
+}
