@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "css/stylessTable.css" %}'>
+    <title>Document</title>
+    {% if request.session.UserName %}
+</head>
+
+<body>
+    <section class="sesiondos">
+        <fieldset class="fi">
+            <form action="/ingresartransaccion/" method="POST" class="frm">
+                {%csrf_token%}
+                <legend>Nueva Transccion</legend>
+                <label for="a">Numero Cuenta
+                    <input type="text" id="a" name= "Numero Cuenta" value="{{Administrador.UserID}}">
+                </label>
+
+                <label for="b">Fecha Transaccion
+                    <input type="date" id="b" name="Fecha Transaccion" value="{{Administrador.Nombre}}">
+                </label>
+
+                <label for="c">Valor Transaccion
+                    <input type="text" id="c" name="Valor Transaccion" value="{{Administrador.Apellido}}">
+                </label>
+
+                <input type="submit" value="Ingresar">
+            </form>
+        </fieldset>
+    </section>
+
+</body>
+    {%endif%}
+</html>
