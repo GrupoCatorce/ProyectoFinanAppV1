@@ -200,3 +200,19 @@ def consultarjoin(request,UserID):
     tamplate_name="consultarDatosAdmon.html"
     resultado={"lista":datos}
     return render(request,tamplate_name,resultado)
+
+def consultarempresa(request,UserID):
+    datos = Perfil_Empresa.objects.select_related('UserID').filter(UserID = UserID)
+    tamplate_name="consultarEmpresa.html"
+    resultado={"lista":datos}
+    return render(request,tamplate_name,resultado)
+
+def nuevatransccion(request):
+    NumCuenta = request.POST['Numero_Cuenta']
+    Datetrans = request.POST['Fecha_Transaccion']
+    ValorTra = request.POST['Valor_Transaccion']
+    admon = Administrador.objects.get(ID_Empresa=ID_Empresa)
+    ID_Empresa= ID_Empresa
+    admon. save()
+    return redirect('/consultarEmpresa/')
+
