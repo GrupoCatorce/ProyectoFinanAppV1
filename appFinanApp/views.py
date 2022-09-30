@@ -65,6 +65,57 @@ class AdministradorViews(View):
             mensaje = {"Respuesta": "No se encontraron datos"}
         return JsonResponse(mensaje)
 
+class OperarioViews(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, User=0):
+        if User > 0:
+            ope = list(Operario.objects.filter(UserID=User).values())
+            if len(ope) > 0:
+                respuesta = ope[0]
+                datos = {"operario": respuesta}
+            else:
+                datos = {"Respuesta": "No se encontraron datos"}
+        else:
+            template_name = "consultarOpera.html"
+            ope = Operario.objects.all()
+            datos = {'listadoOpera': ope}
+        return render(request, template_name, datos)
+
+    def post(self, request):
+
+        Operario.objects.create(UserID=request.POST["UserID"], Nombre=request.POST["Nombre"], Apellido=request.POST["Apellido"],
+                                     Email=request.POST["Email"], Celular=request.POST["Celular"], Fecha_Ingreso_Empresa=request.POST["Fecha_Ingreso_Empresa"])
+        return redirect('/Operario/')
+
+    def put(self, request, User):
+        datos = json.loads(request.body)
+        ope = list(Operario.objects.filter(UserID=User).values())
+        if len(ope) > 0:
+            NewUser = Operario.objects.get(UserID=User)
+            NewUser.UserID = datos['UserID']
+            NewUser.Nombre = datos['Nombre']
+            NewUser.Apellido = datos['Apellido']
+            NewUser.Email = datos['Email']
+            NewUser.Celular = datos['Celular']
+            NewUser.Fecha_Ingreso_Empresa = datos['Fecha de Ingreso Empresa']
+            NewUser.save()
+            mensaje = {"Respuesta": "Se actualizaron los datos correctamente"}
+        else:
+            mensaje = {"Respuesta": "No se encontraron datos"}
+        return JsonResponse(mensaje)
+
+    def delete(self, request, User):
+        ope = list(Operario.objects.filter(UserID=User).values())
+        if len(ope) > 0:
+            Operario.objects.filter(UserID=User).delete
+            mensaje = {"Respuesta": "El registro se elimino correctamente"}
+        else:
+            mensaje = {"Respuesta": "No se encontraron datos"}
+        return JsonResponse(mensaje)
+
 
 class LoginViews(View):
     @method_decorator(csrf_exempt)
