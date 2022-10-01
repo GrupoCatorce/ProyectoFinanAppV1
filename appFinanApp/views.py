@@ -202,7 +202,7 @@ def consultarjoin(request,UserID):
     return render(request,tamplate_name,resultado)
 
 def consultarempresa(request,UserID):
-    datos = Perfil_Empresa.objects.select_related('UserID').filter(UserID = UserID)
+    datos = Perfil_Empresa.objects.select_related('ID_Empresa').filter(ID_Empresa = UserID)
     tamplate_name="consultarEmpresa.html"
     resultado={"lista":datos}
     return render(request,tamplate_name,resultado)
@@ -211,8 +211,13 @@ def nuevatransccion(request):
     NumCuenta = request.POST['Numero_Cuenta']
     Datetrans = request.POST['Fecha_Transaccion']
     ValorTra = request.POST['Valor_Transaccion']
-    admon = Administrador.objects.get(ID_Empresa=ID_Empresa)
+    admon = Perfil_Empresa.objects.get(ID_Empresa=ID_Empresa)
     ID_Empresa= ID_Empresa
     admon. save()
     return redirect('/consultarEmpresa/')
+
+def deletetransccion(request,ID_Empresa):
+        ope = list(Transacciones.objects.filter(ID_Empresa=ID_Empresa).values())
+        Transacciones.objects.filter(ID_Empresa=ID_Empresa).delete
+        return JsonResponse('/consultarDatosEmpresa/')
 
