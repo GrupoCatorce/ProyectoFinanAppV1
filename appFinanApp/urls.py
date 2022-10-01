@@ -16,4 +16,5 @@ urlpatterns=[
     path('consultarDatosAdmon/<int:UserID>',views.consultarjoin, name="Consultar Datos Admon"),
     path('consultarDatosEmpresa/<int:UserID>',views.consultarempresa, name="Consultarempresa"),
     path('ingresartransccion',views.nuevatransccion, name="nuevatransccion"),
+    path('borrartransccion/',views.deletetransccion, name="borrartransccion"),
 ]
