@@ -221,3 +221,44 @@ def deletetransccion(request,ID_Empresa):
         Transacciones.objects.filter(ID_Empresa=ID_Empresa).delete
         return JsonResponse('/consultarDatosEmpresa/')
 
+
+def formularioRegistroOpera(request):
+    return render(request, "registroOpera.html")
+
+
+def fomularioctualizarOpera(request, UserID):
+    opera = Operario.objects.get(UserID=UserID)
+    datos = {
+        'opera': opera
+    }
+    return render(request, "actualizarOpera.html", datos)
+
+
+def actualizarOpera(request):
+    user = request.POST['UserID']
+    nom = request.POST['Nombre']
+    ape = request.POST['Apellido']
+    ema = request.POST['Email']
+    cel = request.POST['Celular']
+    fec = request.POST['Fecha_Ingreso_Empresa']
+    opera = Operario.objects.get(UserID=user)
+    UserID = opera
+    opera.UserID = user
+    opera.Nombre = nom
+    opera.Apellido = ape
+    opera.Email = ema
+    opera.Celular = cel
+    opera.Fecha_Ingreso_Empresa = fec
+    opera. save()
+    return redirect('/Operario/')
+
+
+def eliminarOpera(request, UserID):
+    Operario.objects.filter(UserID=UserID).delete()
+    return redirect('/Operario/')
+
+def consultarjoinOpera(request,UserID):
+    datos = Perfil_Empresa.objects.select_related('UserID').filter(UserID = UserID)
+    tamplate_name="consultarDatosOpera.html"
+    resultado={"lista":datos}
+    return render(request,tamplate_name,resultado)
