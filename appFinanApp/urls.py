@@ -17,4 +17,11 @@ urlpatterns=[
     path('consultarDatosEmpresa/<int:UserID>',views.consultarempresa, name="Consultarempresa"),
     path('ingresartransccion',views.nuevatransccion, name="nuevatransccion"),
     path('borrartransccion/',views.deletetransccion, name="borrartransccion"),
+    path('Operario/',OperarioViews.as_view(), name="Listar"),
+    path('operario/<int:User>',operarioViews.as_view(), name="Actualizar"),
+    path('formularioRegistroOpera/', views.formularioRegistroOpera,name="Registro de Opera"),
+    path('actualizarOpera/<int:UserID>',views.fomularioctualizarOpera,name="Actualizar formulario"),
+    path('actualizarOpera/',views.actualizarOpera, name="actualizar"),
+    path('eliminarOpera/<int:UserID>',views.eliminarOpera, name="eliminarOpera"),
+    path('consultarDatosOpera/<int:UserID>',views.consultarjoinOpera, name="Consultar Datos Opera"),
 ]
